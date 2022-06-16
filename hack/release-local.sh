@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euox pipefail
 
 REPO="${REPO:-}"
 MANIFESTS="${MANIFESTS:-}"
