@@ -1,4 +1,4 @@
-FROM registry.ci.openshift.org/origin/builder:golang-1.17 AS builder
+FROM registry.ci.openshift.org/origin/builder:golang-1.15 AS builder
 WORKDIR /ingress-operator
 COPY . .
 RUN make build
