@@ -416,6 +416,15 @@ type ProviderLoadBalancerParameters struct {
 	//
 	// +optional
 	GCP *GCPLoadBalancerParameters `json:"gcp,omitempty"`
+
+	// ibm provides configuration settings that are specific to IBM Cloud
+	// load balancers.
+	//
+	// If empty, defaults will be applied. See specific gcp fields for
+	// details about their defaults.
+	//
+	// +optional
+	IBM *IBMLoadBalancerParameters `json:"ibm,omitempty"`
 }
 
 // LoadBalancerProviderType is the underlying infrastructure provider for the
@@ -515,6 +524,17 @@ const (
 	GCPGlobalAccess GCPClientAccess = "Global"
 	GCPLocalAccess  GCPClientAccess = "Local"
 )
+
+// IBMLoadBalancerParameters provides configuration settings that are
+// specific to IBM load balancers.
+type IBMLoadBalancerParameters struct {
+	// Subnets is the list of subnets that the Load balancer is attached to.
+	// See https://cloud.ibm.com/docs/containers?topic=containers-vpc-lbaas
+	// (service.kubernetes.io/ibm-load-balancer-cloud-provider-vpc-subnets)
+	//
+	// +optional
+	Subnets string `json:"subnets,omitempty"`
+}
 
 // AWSClassicLoadBalancerParameters holds configuration parameters for an
 // AWS Classic load balancer.
