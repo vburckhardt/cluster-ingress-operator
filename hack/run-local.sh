@@ -2,7 +2,7 @@
 
 set -euox pipefail
 
-#oc scale --replicas 0 -n openshift-cluster-version deployments/cluster-version-operator
+oc scale --replicas 0 -n openshift-cluster-version deployments/cluster-version-operator
 oc scale --replicas 0 -n openshift-ingress-operator deployments ingress-operator
 
 IMAGE=$(oc get -n openshift-ingress-operator deployments/ingress-operator -o json | jq -r '.spec.template.spec.containers[0].env[] | select(.name=="IMAGE").value')
