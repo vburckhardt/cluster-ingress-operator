@@ -173,8 +173,7 @@ var (
 		// vSphere does not support load balancers as of 2019-06-17.
 		configv1.VSpherePlatformType: nil,
 		configv1.IBMCloudPlatformType: {
-			iksLBScopeAnnotation:   iksLBScopePrivate,
-			iksLBSubnetsAnnotation: iksLBSubnets,
+			iksLBScopeAnnotation: iksLBScopePrivate,
 		},
 		configv1.PowerVSPlatformType: {
 			iksLBScopeAnnotation: iksLBScopePrivate,
